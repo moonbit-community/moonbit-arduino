@@ -25,6 +25,65 @@ on:
   pull_request:
 
 jobs:
+  CCAA-check:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    outputs:
+      CCAA-signed: ${{ steps.CCAA-check-step.outputs.CCAA-signed }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: CCAA check
+        id: CCAA-check-step
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_AUTHOR=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
+          https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.number }} \
+          | jq -r '.user.login')
+          echo "The PR author is $PR_AUTHOR"
+          EMAIL=$(git log -1 --pretty=format:'%ae')
+          echo "Commit author email: $EMAIL"
+          CCAA_RESPONSE=$(curl -s "https://mooncakes.io/api/v0/cla/check_with_repo?gh_username=$PR_AUTHOR&repo=moonbit-arduino&email=$EMAIL")
+          echo "CCAA check response: $CCAA_RESPONSE"
+          SIGNED=$(echo $CCAA_RESPONSE | jq -r '.signed')
+          echo "CCAA-signed=$SIGNED" >> $GITHUB_ENV
+          echo "If you have any questions about the CCAA result, please contact us."
+          if [ "$SIGNED" != "true" ]; then
+            echo "CCAA is not signed. Please read the document at https://github.com/moonbit-community/moonbit-arduino/tree/main/docs/dev"
+            exit 1
+          else
+            echo "CCAA is signed."
+          fi
+
+  license-header-check:
+    name: license header check
+    runs-on: ubuntu-latest
+    env:
+      HAWKEYE_VERSION: v5.6.0
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download HawkEye
+        run: curl --proto '=https' --tlsv1.2 -LsSf https://github.com/korandoru/hawkeye/releases/download/$HAWKEYE_VERSION/hawkeye-installer.sh | sh
+      - name: License Header Check
+        run: hawkeye check
+
+  typo-check:
+    name: typo-check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      FORCE_COLOR: 1
+      TYPOS_VERSION: v1.18.0
+    steps:
+      - name: download typos
+        run: curl -LsSf https://github.com/crate-ci/typos/releases/download/$TYPOS_VERSION/typos-$TYPOS_VERSION-x86_64-unknown-linux-musl.tar.gz | tar zxf - -C ${CARGO_HOME:-~/.cargo}/bin
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: check for typos
+        run: typos
+
   build:
       runs-on: ubuntu-latest
       steps:
