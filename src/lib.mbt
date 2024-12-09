@@ -12,7 +12,7 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with this program. If not, see .
+// along with this program. If not, see <https://www.gnu.org/licenses/>.
 //
 // For inquiries, you can contact us via e-mail at jichuruanjian@idea.edu.cn.
 
@@ -103,4 +103,9 @@ extern "C" fn _pinMode(pin : Int, mode : Int) = "pin_mode"
 ///|
 pub fn pinMode(pin : Pin, mode : PinMode) -> Unit {
   _pinMode(pin.to_int8(), mode.to_int())
+}
+
+///|
+pub fn test_bytes(data : Bytes) -> Unit {
+  println(data)
 }
