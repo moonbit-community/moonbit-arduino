@@ -1,8 +1,8 @@
 {
   "name": "moonbitlang/arduino",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "readme": "README.md",
-  "repository": "",
+  "repository": "https://github.com/moonbit-community/moonbit-arduino",
   "license": "GPL-3.0",
   "keywords": [],
   "description": "",
