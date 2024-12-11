@@ -76,34 +76,34 @@ type WiFiClient
 pub extern "C" fn wifi_server_new(port : Int) -> WiFiServer = "wifi_server_new"
 
 ///|
-pub extern "C" fn wifi_server_delete(server : WiFiServer) -> Unit = "wifi_server_delete"
+pub extern "C" fn delete(self : WiFiServer) -> Unit = "wifi_server_delete"
 
 ///|
-pub extern "C" fn wifi_server_begin(server : WiFiServer) -> Unit = "wifi_server_begin"
+pub extern "C" fn begin(self : WiFiServer) -> Unit = "wifi_server_begin"
 
 ///|
-pub extern "C" fn wifi_server_accept(server : WiFiServer) -> WiFiClient = "wifi_server_accept"
+pub extern "C" fn accept(self : WiFiServer) -> WiFiClient = "wifi_server_accept"
 
 ///|
-pub extern "C" fn wifi_client_delete(server : WiFiClient) -> Unit = "wifi_client_delete"
+pub extern "C" fn delete(self : WiFiClient) -> Unit = "wifi_client_delete"
 
 ///|
-pub extern "C" fn wifi_client_is_ok(client : WiFiClient) -> Bool = "wifi_client_is_ok"
+pub extern "C" fn is_ok(self : WiFiClient) -> Bool = "wifi_client_is_ok"
 
 ///|
-pub extern "C" fn wifi_client_is_connected(client : WiFiClient) -> Bool = "wifi_client_is_connected"
+pub extern "C" fn is_connected(self : WiFiClient) -> Bool = "wifi_client_is_connected"
 
 ///|
-pub extern "C" fn wifi_client_is_available(client : WiFiClient) -> Bool = "wifi_client_is_available"
+pub extern "C" fn is_available(self : WiFiClient) -> Bool = "wifi_client_is_available"
 
 ///|
-pub extern "C" fn wifi_client_read_char(client : WiFiClient) -> Char = "wifi_client_read_char"
+pub extern "C" fn read_char(self : WiFiClient) -> Char = "wifi_client_read_char"
 
 ///|
-pub extern "C" fn wifi_client_print(client : WiFiClient, s : Bytes) -> Unit = "wifi_client_print"
+pub extern "C" fn print(self : WiFiClient, s : Bytes) -> Unit = "wifi_client_print"
 
 ///|
-pub extern "C" fn wifi_client_println(client : WiFiClient, s : Bytes) -> Unit = "wifi_client_println"
+pub extern "C" fn println(self : WiFiClient, s : Bytes) -> Unit = "wifi_client_println"
 
 ///|
-pub extern "C" fn wifi_client_stop(client : WiFiClient) -> Unit = "wifi_client_stop"
+pub extern "C" fn stop(self : WiFiClient) -> Unit = "wifi_client_stop"
