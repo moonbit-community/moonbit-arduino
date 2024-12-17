@@ -97,7 +97,7 @@ pub extern "C" fn is_connected(self : WiFiClient) -> Bool = "wifi_client_is_conn
 pub extern "C" fn is_available(self : WiFiClient) -> Bool = "wifi_client_is_available"
 
 ///|
-pub extern "C" fn read_char(self : WiFiClient) -> Char = "wifi_client_read_char"
+pub extern "C" fn read_char(self : WiFiClient) -> Char? = "wifi_client_read_char"
 
 ///|
 pub extern "C" fn print(self : WiFiClient, s : Bytes) -> Unit = "wifi_client_print"
