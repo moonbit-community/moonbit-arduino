@@ -18,7 +18,7 @@
 
 // void delay(uint32_t ms)
 ///|
-pub extern "C" fn delay(ms : Int) = "delay"
+pub extern "C" fn delay(ms : UInt) = "delay"
 
 ///|
 pub extern "C" fn delayMicroseconds(us : Int) = "delayMicroseconds"

@@ -29,6 +29,9 @@ extern "C" fn serial_end() = "serial_end"
 extern "C" fn serial_is_ok() -> Bool = "serial_is_ok"
 
 ///|
+extern "C" fn serial_available() -> Int = "serial_available"
+
+///|
 pub fn Serial::begin(baud : Int64) -> Unit {
   serial_begin(baud)
 }
@@ -41,6 +44,11 @@ pub fn Serial::end() -> Unit {
 ///|
 pub fn Serial::is_ok() -> Bool {
   serial_is_ok()
+}
+
+///|
+pub fn Serial::available() -> Int {
+  serial_available()
 }
 
 ///|
@@ -130,10 +138,10 @@ pub fn serial_peek() -> Int {
 }
 
 ///|
-extern "C" fn __serial_read() -> Int = "serial_read"
+extern "C" fn __serial_read() -> Char? = "serial_read"
 
 ///|
-pub fn serial_read() -> Int {
+pub fn serial_read() -> Char? {
   __serial_read()
 }
 
