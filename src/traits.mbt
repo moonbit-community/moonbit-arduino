@@ -82,11 +82,7 @@ pub impl Integer for Int64 with is_integer(_x : Int64) -> Bool {
 }
 
 ///|
-pub(open) trait Number: Compare {
-  op_add(Self, Self) -> Self
-  op_sub(Self, Self) -> Self
-  op_mul(Self, Self) -> Self
-  op_div(Self, Self) -> Self
+pub(open) trait Number: Compare + Add + Sub + Mul + Div {
   abs(Self) -> Self
   zero() -> Self
   one() -> Self
