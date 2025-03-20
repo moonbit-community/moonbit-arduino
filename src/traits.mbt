@@ -27,10 +27,14 @@ pub(open) trait ToInt8 {
 }
 
 ///|
-pub impl ToInt8 for Byte with to_int8(self : Byte) -> Int { self.to_int() }
+pub impl ToInt8 for Byte with to_int8(self : Byte) -> Int {
+  self.to_int()
+}
 
 ///|
-pub impl ToInt8 for Int with to_int8(self : Int) -> Int { self & 0xFF }
+pub impl ToInt8 for Int with to_int8(self : Int) -> Int {
+  self & 0xFF
+}
 
 ///|
 pub impl ToInt8 for Int64 with to_int8(self : Int64) -> Int {
@@ -43,7 +47,9 @@ pub(open) trait ToInt16 {
 }
 
 ///|
-pub impl ToInt16 for Int with to_int16(self : Int) -> Int { self & 0xFFFF }
+pub impl ToInt16 for Int with to_int16(self : Int) -> Int {
+  self & 0xFFFF
+}
 
 ///|
 pub impl ToInt16 for Int64 with to_int16(self : Int64) -> Int {
@@ -66,10 +72,14 @@ pub(open) trait Integer: Number {
 }
 
 ///|
-pub impl Integer for Int with is_integer(_x : Int) -> Bool { true }
+pub impl Integer for Int with is_integer(_x : Int) -> Bool {
+  true
+}
 
 ///|
-pub impl Integer for Int64 with is_integer(_x : Int64) -> Bool { true }
+pub impl Integer for Int64 with is_integer(_x : Int64) -> Bool {
+  true
+}
 
 ///|
 pub(open) trait Number: Compare {
@@ -83,25 +93,41 @@ pub(open) trait Number: Compare {
 }
 
 ///|
-pub impl Number for Int with zero() -> Int { 0 }
+pub impl Number for Int with zero() -> Int {
+  0
+}
 
 ///|
-pub impl Number for Int64 with zero() -> Int64 { 0 }
+pub impl Number for Int64 with zero() -> Int64 {
+  0
+}
 
 ///|
-pub impl Number for Float with zero() -> Float { 0 }
+pub impl Number for Float with zero() -> Float {
+  0
+}
 
 ///|
-pub impl Number for Double with zero() -> Double { 0 }
+pub impl Number for Double with zero() -> Double {
+  0
+}
 
 ///|
-pub impl Number for Int with one() -> Int { 1 }
+pub impl Number for Int with one() -> Int {
+  1
+}
 
 ///|
-pub impl Number for Int64 with one() -> Int64 { 1 }
+pub impl Number for Int64 with one() -> Int64 {
+  1
+}
 
 ///|
-pub impl Number for Float with one() -> Float { 1 }
+pub impl Number for Float with one() -> Float {
+  1
+}
 
 ///|
-pub impl Number for Double with one() -> Double { 1 }
+pub impl Number for Double with one() -> Double {
+  1
+}

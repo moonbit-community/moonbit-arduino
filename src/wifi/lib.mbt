@@ -85,7 +85,7 @@ pub extern "C" fn begin(self : WiFiServer) -> Unit = "wifi_server_begin"
 pub extern "C" fn accept(self : WiFiServer) -> WiFiClient = "wifi_server_accept"
 
 ///|
-pub extern "C" fn delete(self : WiFiClient) -> Unit = "wifi_client_delete"
+pub extern "C" fn WiFiClient::delete(self : WiFiClient) -> Unit = "wifi_client_delete"
 
 ///|
 pub extern "C" fn is_ok(self : WiFiClient) -> Bool = "wifi_client_is_ok"
