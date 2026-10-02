@@ -18,112 +18,112 @@
 
 ///|
 pub(open) trait ToInt {
-  to_int(Self) -> Int
+  fn to_int(Self) -> Int
 }
 
 ///|
 pub(open) trait ToInt8 {
-  to_int8(Self) -> Int
+  fn to_int8(Self) -> Int
 }
 
 ///|
-pub impl ToInt8 for Byte with to_int8(self : Byte) -> Int {
+pub impl ToInt8 for Byte with fn to_int8(self : Byte) -> Int {
   self.to_int()
 }
 
 ///|
-pub impl ToInt8 for Int with to_int8(self : Int) -> Int {
+pub impl ToInt8 for Int with fn to_int8(self : Int) -> Int {
   self & 0xFF
 }
 
 ///|
-pub impl ToInt8 for Int64 with to_int8(self : Int64) -> Int {
+pub impl ToInt8 for Int64 with fn to_int8(self : Int64) -> Int {
   (self & 0xFF).to_int()
 }
 
 ///|
 pub(open) trait ToInt16 {
-  to_int16(Self) -> Int
+  fn to_int16(Self) -> Int
 }
 
 ///|
-pub impl ToInt16 for Int with to_int16(self : Int) -> Int {
+pub impl ToInt16 for Int with fn to_int16(self : Int) -> Int {
   self & 0xFFFF
 }
 
 ///|
-pub impl ToInt16 for Int64 with to_int16(self : Int64) -> Int {
+pub impl ToInt16 for Int64 with fn to_int16(self : Int64) -> Int {
   (self & 0xFFFF).to_int()
 }
 
 ///|
 pub(open) trait FromInt {
-  from_int(Int) -> Self
+  fn from_int(Int) -> Self
 }
 
 ///|
 pub(open) trait Floating: Number {
-  is_nan(Self) -> Bool
+  fn is_nan(Self) -> Bool
 }
 
 ///|
 pub(open) trait Integer: Number {
-  is_integer(Self) -> Bool
+  fn is_integer(Self) -> Bool
 }
 
 ///|
-pub impl Integer for Int with is_integer(_x : Int) -> Bool {
+pub impl Integer for Int with fn is_integer(_x : Int) -> Bool {
   true
 }
 
 ///|
-pub impl Integer for Int64 with is_integer(_x : Int64) -> Bool {
+pub impl Integer for Int64 with fn is_integer(_x : Int64) -> Bool {
   true
 }
 
 ///|
 pub(open) trait Number: Compare + Add + Sub + Mul + Div {
-  abs(Self) -> Self
-  zero() -> Self
-  one() -> Self
+  fn abs(Self) -> Self
+  fn zero() -> Self
+  fn one() -> Self
 }
 
 ///|
-pub impl Number for Int with zero() -> Int {
+pub impl Number for Int with fn zero() -> Int {
   0
 }
 
 ///|
-pub impl Number for Int64 with zero() -> Int64 {
+pub impl Number for Int64 with fn zero() -> Int64 {
   0
 }
 
 ///|
-pub impl Number for Float with zero() -> Float {
+pub impl Number for Float with fn zero() -> Float {
   0
 }
 
 ///|
-pub impl Number for Double with zero() -> Double {
+pub impl Number for Double with fn zero() -> Double {
   0
 }
 
 ///|
-pub impl Number for Int with one() -> Int {
+pub impl Number for Int with fn one() -> Int {
   1
 }
 
 ///|
-pub impl Number for Int64 with one() -> Int64 {
+pub impl Number for Int64 with fn one() -> Int64 {
   1
 }
 
 ///|
-pub impl Number for Float with one() -> Float {
+pub impl Number for Float with fn one() -> Float {
   1
 }
 
 ///|
-pub impl Number for Double with one() -> Double {
+pub impl Number for Double with fn one() -> Double {
   1
 }

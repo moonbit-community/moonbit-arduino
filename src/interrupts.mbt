@@ -47,23 +47,25 @@ pub fn InterruptMode::to_int(self : InterruptMode) -> Int {
 }
 
 // void attachInterrupt(uint8_t pin, std::function<void(void)> intRoutine, int mode)
+
 ///|
 extern "C" fn __attachInterrupt(
   pin : Int,
   intRoutine : () -> Unit,
-  mode : Int
+  mode : Int,
 ) -> Unit = "arduino_attach_interrupt_arg"
 
 ///|
 pub fn attachInterrupt(
   pin : Pin,
   intRoutine : () -> Unit,
-  mode : InterruptMode
+  mode : InterruptMode,
 ) -> Unit {
   __attachInterrupt(pin.to_int8(), intRoutine, mode.to_int())
 }
 
 // void detachInterrupt(uint8_t pin)
+
 ///|
 extern "C" fn __detachInterrupt(pin : Int) -> Unit = "detachInterrupt"
 

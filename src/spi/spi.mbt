@@ -21,7 +21,7 @@ extern "C" fn __spi_begin(
   sck~ : Int,
   miso~ : Int,
   mosi~ : Int,
-  ss~ : Int
+  ss~ : Int,
 ) -> Unit = "spi_begin"
 
 ///|
@@ -29,7 +29,7 @@ pub fn begin(
   sck? : @arduino.Pin,
   miso? : @arduino.Pin,
   mosi? : @arduino.Pin,
-  ss? : @arduino.Pin
+  ss? : @arduino.Pin,
 ) -> Unit {
   __spi_begin(
     sck=sck.map_or(-1, @arduino.Pin::to_int8),
@@ -43,7 +43,7 @@ pub fn begin(
 extern "C" fn __spi_begin_transaction(
   clock~ : Int,
   bitOrder~ : Int,
-  dataMode~ : Int
+  dataMode~ : Int,
 ) -> Unit = "spi_begin_transaction"
 
 ///|
