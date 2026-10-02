@@ -149,9 +149,10 @@ pub fn serial_read() -> Char? {
 extern "C" fn __serial_read_to_buffer(buf : Int, size : Int) -> Int = "serial_read_to_buffer"
 
 ///|
-extern "C" fn __get_buffer_ptr(buf : @buffer.T) -> Int = "__moonbit_get_buffer_ptr"
+#owned(buf)
+extern "C" fn __get_buffer_ptr(buf : @buffer.Buffer) -> Int = "__moonbit_get_buffer_ptr"
 
 ///|
-pub fn serial_read_to_buffer(buf : @buffer.T, size : Int) -> Int {
+pub fn serial_read_to_buffer(buf : @buffer.Buffer, size : Int) -> Int {
   __serial_read_to_buffer(__get_buffer_ptr(buf), size)
 }

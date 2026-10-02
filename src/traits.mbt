@@ -127,3 +127,23 @@ pub impl Number for Float with one() -> Float {
 pub impl Number for Double with one() -> Double {
   1
 }
+
+///|
+pub impl Number for Int with abs(self : Int) -> Int {
+  Int::abs(self)
+}
+
+///|
+pub impl Number for Int64 with abs(self : Int64) -> Int64 {
+  Int64::abs(self)
+}
+
+///|
+pub impl Number for Float with abs(self : Float) -> Float {
+  Float::abs(self)
+}
+
+///|
+pub impl Number for Double with abs(self : Double) -> Double {
+  Double::abs(self)
+}

@@ -61,6 +61,7 @@ pub fn WLStatus::from_int(val : Int) -> WLStatus {
 }
 
 ///|
+#owned(ssid, password)
 pub extern "C" fn wifi_begin(ssid : Bytes, password : Bytes) -> Int = "wifi_begin"
 
 ///|
@@ -76,34 +77,45 @@ type WiFiClient
 pub extern "C" fn wifi_server_new(port : Int) -> WiFiServer = "wifi_server_new"
 
 ///|
+#owned(self)
 pub extern "C" fn delete(self : WiFiServer) -> Unit = "wifi_server_delete"
 
 ///|
+#owned(self)
 pub extern "C" fn begin(self : WiFiServer) -> Unit = "wifi_server_begin"
 
 ///|
+#owned(self)
 pub extern "C" fn accept(self : WiFiServer) -> WiFiClient = "wifi_server_accept"
 
 ///|
+#owned(self)
 pub extern "C" fn WiFiClient::delete(self : WiFiClient) -> Unit = "wifi_client_delete"
 
 ///|
+#owned(self)
 pub extern "C" fn is_ok(self : WiFiClient) -> Bool = "wifi_client_is_ok"
 
 ///|
+#owned(self)
 pub extern "C" fn is_connected(self : WiFiClient) -> Bool = "wifi_client_is_connected"
 
 ///|
+#owned(self)
 pub extern "C" fn is_available(self : WiFiClient) -> Bool = "wifi_client_is_available"
 
 ///|
+#owned(self)
 pub extern "C" fn read_char(self : WiFiClient) -> Char? = "wifi_client_read_char"
 
 ///|
+#owned(self, s)
 pub extern "C" fn print(self : WiFiClient, s : Bytes) -> Unit = "wifi_client_print"
 
 ///|
+#owned(self, s)
 pub extern "C" fn println(self : WiFiClient, s : Bytes) -> Unit = "wifi_client_println"
 
 ///|
+#owned(self)
 pub extern "C" fn stop(self : WiFiClient) -> Unit = "wifi_client_stop"

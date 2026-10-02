@@ -17,12 +17,12 @@
 // For inquiries, you can contact us via e-mail at jichuruanjian@idea.edu.cn.
 
 ///|
-pub fn abs[T : Number](x : T) -> T {
+pub fn[T : Number] abs(x : T) -> T {
   x.abs()
 }
 
 ///|
-pub fn constrain[T : Number](amt : T, low : T, high : T) -> T {
+pub fn[T : Number] constrain(amt : T, low : T, high : T) -> T {
   if amt < low {
     low
   } else if amt > high {
@@ -33,7 +33,7 @@ pub fn constrain[T : Number](amt : T, low : T, high : T) -> T {
 }
 
 ///|
-pub fn map[T : Number](
+pub fn[T : Number] map(
   x : T,
   in_min : T,
   in_max : T,
@@ -50,7 +50,7 @@ pub fn map[T : Number](
 }
 
 ///|
-pub fn max[T : Number](a : T, b : T) -> T {
+pub fn[T : Number] max(a : T, b : T) -> T {
   if a > b {
     a
   } else {
@@ -59,7 +59,7 @@ pub fn max[T : Number](a : T, b : T) -> T {
 }
 
 ///|
-pub fn min[T : Number](a : T, b : T) -> T {
+pub fn[T : Number] min(a : T, b : T) -> T {
   if a < b {
     a
   } else {
@@ -68,6 +68,6 @@ pub fn min[T : Number](a : T, b : T) -> T {
 }
 
 ///|
-pub fn sq[T : Number](x : T) -> T {
+pub fn[T : Number] sq(x : T) -> T {
   x * x
 }

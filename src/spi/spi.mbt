@@ -74,7 +74,7 @@ pub fn end_transaction() -> Unit {
 extern "C" fn __spi_transfer(data : Int) -> Unit = "spi_transfer"
 
 ///|
-pub fn transfer[T : @arduino.ToInt8](data : T) -> Unit {
+pub fn[T : @arduino.ToInt8] transfer(data : T) -> Unit {
   __spi_transfer(data.to_int8())
 }
 
@@ -82,11 +82,12 @@ pub fn transfer[T : @arduino.ToInt8](data : T) -> Unit {
 extern "C" fn __spi_transfer16(data : Int) -> Unit = "spi_transfer16"
 
 ///|
-pub fn transfer16[T : @arduino.ToInt16](data : T) -> Unit {
+pub fn[T : @arduino.ToInt16] transfer16(data : T) -> Unit {
   __spi_transfer16(data.to_int16())
 }
 
 ///|
+#owned(data)
 extern "C" fn __spi_transfer_bytes(data : Bytes, length : Int) -> Unit = "spi_transfer_bytes"
 
 ///|

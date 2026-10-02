@@ -30,7 +30,7 @@ pub fn analogRead(pin : Pin) -> Int {
 extern "C" fn __analogReadResolution(bits : Int) -> Unit = "analogReadResolution"
 
 ///|
-pub fn analogReadResolution[T : ToInt8](bits : T) -> Unit {
+pub fn[T : ToInt8] analogReadResolution(bits : T) -> Unit {
   __analogReadResolution(bits.to_int8())
 }
 
@@ -48,6 +48,6 @@ pub fn analogWrite(pin : Pin, value : Int) -> Unit {
 extern "C" fn __analogWriteResolution(pin : Int, resolution : Int) -> Unit = "analogWriteResolution"
 
 ///|
-pub fn analogWriteResolution[T : ToInt8](pin : Pin, resolution : T) -> Unit {
+pub fn[T : ToInt8] analogWriteResolution(pin : Pin, resolution : T) -> Unit {
   __analogWriteResolution(pin.to_int8(), resolution.to_int8())
 }
