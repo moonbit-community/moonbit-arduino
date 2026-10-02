@@ -20,6 +20,6 @@
 extern "C" fn __tone(pin : Int, frequency : Int, duration : Int64) -> Unit = "arduino_tone"
 
 ///|
-pub fn tone(pin : Pin, frequency : Int, duration~ : Int64 = 0) -> Unit {
+pub fn tone(pin : Pin, frequency : Int, duration? : Int64 = 0) -> Unit {
   __tone(pin.to_int8(), frequency, duration)
 }

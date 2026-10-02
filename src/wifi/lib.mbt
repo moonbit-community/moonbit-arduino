@@ -76,34 +76,34 @@ type WiFiClient
 pub extern "C" fn wifi_server_new(port : Int) -> WiFiServer = "wifi_server_new"
 
 ///|
-pub extern "C" fn delete(self : WiFiServer) -> Unit = "wifi_server_delete"
+pub extern "C" fn WiFiServer::delete(self : WiFiServer) -> Unit = "wifi_server_delete"
 
 ///|
-pub extern "C" fn begin(self : WiFiServer) -> Unit = "wifi_server_begin"
+pub extern "C" fn WiFiServer::begin(self : WiFiServer) -> Unit = "wifi_server_begin"
 
 ///|
-pub extern "C" fn accept(self : WiFiServer) -> WiFiClient = "wifi_server_accept"
+pub extern "C" fn WiFiServer::accept(self : WiFiServer) -> WiFiClient = "wifi_server_accept"
 
 ///|
 pub extern "C" fn WiFiClient::delete(self : WiFiClient) -> Unit = "wifi_client_delete"
 
 ///|
-pub extern "C" fn is_ok(self : WiFiClient) -> Bool = "wifi_client_is_ok"
+pub extern "C" fn WiFiClient::is_ok(self : WiFiClient) -> Bool = "wifi_client_is_ok"
 
 ///|
-pub extern "C" fn is_connected(self : WiFiClient) -> Bool = "wifi_client_is_connected"
+pub extern "C" fn WiFiClient::is_connected(self : WiFiClient) -> Bool = "wifi_client_is_connected"
 
 ///|
-pub extern "C" fn is_available(self : WiFiClient) -> Bool = "wifi_client_is_available"
+pub extern "C" fn WiFiClient::is_available(self : WiFiClient) -> Bool = "wifi_client_is_available"
 
 ///|
-pub extern "C" fn read_char(self : WiFiClient) -> Char? = "wifi_client_read_char"
+pub extern "C" fn WiFiClient::read_char(self : WiFiClient) -> Char? = "wifi_client_read_char"
 
 ///|
-pub extern "C" fn print(self : WiFiClient, s : Bytes) -> Unit = "wifi_client_print"
+pub extern "C" fn WiFiClient::print(self : WiFiClient, s : Bytes) -> Unit = "wifi_client_print"
 
 ///|
-pub extern "C" fn println(self : WiFiClient, s : Bytes) -> Unit = "wifi_client_println"
+pub extern "C" fn WiFiClient::println(self : WiFiClient, s : Bytes) -> Unit = "wifi_client_println"
 
 ///|
-pub extern "C" fn stop(self : WiFiClient) -> Unit = "wifi_client_stop"
+pub extern "C" fn WiFiClient::stop(self : WiFiClient) -> Unit = "wifi_client_stop"

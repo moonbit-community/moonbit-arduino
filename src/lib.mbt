@@ -79,6 +79,7 @@ fn PinMode::to_int(self : PinMode) -> Int {
 }
 
 // int digitalRead(uint8_t pin)
+
 ///|
 extern "C" fn __digitalRead(pin : Int) -> Int = "digitalRead"
 
@@ -88,6 +89,7 @@ pub fn digitalRead(pin : Pin) -> DigitalValue {
 }
 
 // void digitalWrite(uint8_t pin, uint8_t val)
+
 ///|
 extern "C" fn __digitalWrite(pin : Int, val : Int) = "digitalWrite"
 
@@ -97,6 +99,7 @@ pub fn digitalWrite(pin : Pin, val : DigitalValue) -> Unit {
 }
 
 // void pinMode(uint8_t pin, uint8_t mode)
+
 ///|
 extern "C" fn _pinMode(pin : Int, mode : Int) = "pin_mode"
 

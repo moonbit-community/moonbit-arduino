@@ -17,6 +17,7 @@
 // For inquiries, you can contact us via e-mail at jichuruanjian@idea.edu.cn.
 
 // uint16_t analogRead(uint8_t pin)
+
 ///|
 extern "C" fn __analogRead(pin : Int) -> Int = "analogRead"
 
@@ -26,6 +27,7 @@ pub fn analogRead(pin : Pin) -> Int {
 }
 
 // extern void analogReadResolution(uint8_t bits) __attribute__((weak, alias("__analogReadResolution")));
+
 ///|
 extern "C" fn __analogReadResolution(bits : Int) -> Unit = "analogReadResolution"
 
@@ -35,6 +37,7 @@ pub fn analogReadResolution[T : ToInt8](bits : T) -> Unit {
 }
 
 // void analogWrite(uint8_t pin, int value)
+
 ///|
 extern "C" fn __analogWrite(pin : Int, value : Int) -> Unit = "analogWrite"
 
@@ -44,6 +47,7 @@ pub fn analogWrite(pin : Pin, value : Int) -> Unit {
 }
 
 // void analogWriteResolution(uint8_t pin, uint8_t resolution)
+
 ///|
 extern "C" fn __analogWriteResolution(pin : Int, resolution : Int) -> Unit = "analogWriteResolution"
 

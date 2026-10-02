@@ -53,8 +53,8 @@ pub fn Serial::available() -> Int {
 
 ///|
 pub(open) trait SerialPrintable {
-  serial_print(Self) -> Unit
-  serial_println(Self) -> Unit
+  fn serial_print(Self) -> Unit
+  fn serial_println(Self) -> Unit
 }
 
 ///|
@@ -82,42 +82,42 @@ extern "C" fn serial_print_double(x : Double) = "serial_print_double"
 extern "C" fn serial_println_double(x : Double) = "serial_println_double"
 
 ///|
-pub impl SerialPrintable for Char with serial_print(self : Char) -> Unit {
+pub impl SerialPrintable for Char with fn serial_print(self : Char) -> Unit {
   serial_print_char(self)
 }
 
 ///|
-pub impl SerialPrintable for Char with serial_println(self : Char) -> Unit {
+pub impl SerialPrintable for Char with fn serial_println(self : Char) -> Unit {
   serial_println_char(self)
 }
 
 ///|
-pub impl SerialPrintable for Int with serial_print(self : Int) -> Unit {
+pub impl SerialPrintable for Int with fn serial_print(self : Int) -> Unit {
   serial_print_int(self)
 }
 
 ///|
-pub impl SerialPrintable for Int with serial_println(self : Int) -> Unit {
+pub impl SerialPrintable for Int with fn serial_println(self : Int) -> Unit {
   serial_println_int(self)
 }
 
 ///|
-pub impl SerialPrintable for Int64 with serial_print(self : Int64) -> Unit {
+pub impl SerialPrintable for Int64 with fn serial_print(self : Int64) -> Unit {
   serial_print_int64(self)
 }
 
 ///|
-pub impl SerialPrintable for Int64 with serial_println(self : Int64) -> Unit {
+pub impl SerialPrintable for Int64 with fn serial_println(self : Int64) -> Unit {
   serial_println_int64(self)
 }
 
 ///|
-pub impl SerialPrintable for Double with serial_print(self : Double) -> Unit {
+pub impl SerialPrintable for Double with fn serial_print(self : Double) -> Unit {
   serial_print_double(self)
 }
 
 ///|
-pub impl SerialPrintable for Double with serial_println(self : Double) -> Unit {
+pub impl SerialPrintable for Double with fn serial_println(self : Double) -> Unit {
   serial_println_double(self)
 }
 
