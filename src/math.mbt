@@ -38,7 +38,7 @@ pub fn[T : Number] map(
   in_min : T,
   in_max : T,
   out_min : T,
-  out_max : T
+  out_max : T,
 ) -> T {
   let run = in_max - in_min
   if run == T::zero() {

@@ -36,7 +36,7 @@ pub(all) enum DigitalValue {
 }
 
 ///|
-pub fn DigitalValue::from_int(val : Int) -> DigitalValue {
+pub fn DigitalValue::from_int(val : Int32) -> DigitalValue {
   match val {
     0 => LOW
     1 => HIGH
@@ -45,7 +45,7 @@ pub fn DigitalValue::from_int(val : Int) -> DigitalValue {
 }
 
 ///|
-pub fn DigitalValue::to_int(self : DigitalValue) -> Int {
+pub fn DigitalValue::to_int(self : DigitalValue) -> Int32 {
   match self {
     LOW => 0
     HIGH => 1
@@ -53,7 +53,7 @@ pub fn DigitalValue::to_int(self : DigitalValue) -> Int {
 }
 
 ///|
-pub fn DigitalValue::to_int8(self : DigitalValue) -> Int {
+pub fn DigitalValue::to_int8(self : DigitalValue) -> Int32 {
   match self {
     LOW => 0
     HIGH => 1
@@ -61,10 +61,10 @@ pub fn DigitalValue::to_int8(self : DigitalValue) -> Int {
 }
 
 ///|
-pub extern "C" fn builtin_led() -> Int = "builtin_led"
+pub extern "C" fn builtin_led() -> Int32 = "builtin_led"
 
 ///|
-fn PinMode::to_int(self : PinMode) -> Int {
+fn PinMode::to_int(self : PinMode) -> Int32 {
   match self {
     INPUT => 0x01
     OUTPUT => 0x03
@@ -79,8 +79,9 @@ fn PinMode::to_int(self : PinMode) -> Int {
 }
 
 // int digitalRead(uint8_t pin)
+
 ///|
-extern "C" fn __digitalRead(pin : Int) -> Int = "digitalRead"
+extern "C" fn __digitalRead(pin : Int32) -> Int32 = "digitalRead"
 
 ///|
 pub fn digitalRead(pin : Pin) -> DigitalValue {
@@ -88,8 +89,9 @@ pub fn digitalRead(pin : Pin) -> DigitalValue {
 }
 
 // void digitalWrite(uint8_t pin, uint8_t val)
+
 ///|
-extern "C" fn __digitalWrite(pin : Int, val : Int) = "digitalWrite"
+extern "C" fn __digitalWrite(pin : Int32, val : Int32) = "digitalWrite"
 
 ///|
 pub fn digitalWrite(pin : Pin, val : DigitalValue) -> Unit {
@@ -97,8 +99,9 @@ pub fn digitalWrite(pin : Pin, val : DigitalValue) -> Unit {
 }
 
 // void pinMode(uint8_t pin, uint8_t mode)
+
 ///|
-extern "C" fn _pinMode(pin : Int, mode : Int) = "pin_mode"
+extern "C" fn _pinMode(pin : Int32, mode : Int32) = "pin_mode"
 
 ///|
 pub fn pinMode(pin : Pin, mode : PinMode) -> Unit {

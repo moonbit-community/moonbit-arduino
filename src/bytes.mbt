@@ -17,7 +17,7 @@
 // For inquiries, you can contact us via e-mail at jichuruanjian@idea.edu.cn.
 
 ///|
-pub extern "C" fn highByte(x : Int) -> Byte = "highByte"
+pub extern "C" fn highByte(x : Int32) -> Byte = "highByte"
 
 ///|
-pub extern "C" fn lowByte(x : Int) -> Byte = "lowByte"
+pub extern "C" fn lowByte(x : Int32) -> Byte = "lowByte"

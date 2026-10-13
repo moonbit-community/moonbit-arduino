@@ -17,16 +17,16 @@
 // For inquiries, you can contact us via e-mail at jichuruanjian@idea.edu.cn.
 
 ///|
-pub extern "C" fn bit(n : Int) -> Int = "bit"
+pub extern "C" fn bit(n : Int32) -> Int32 = "bit"
 
 ///|
-pub extern "C" fn bitClear(x : Int, n : Int) -> Int = "bitClear"
+pub extern "C" fn bitClear(x : Int32, n : Int32) -> Int32 = "bitClear"
 
 ///|
-pub extern "C" fn bitRead(x : Int, n : Int) -> Int = "bitRead"
+pub extern "C" fn bitRead(x : Int32, n : Int32) -> Int32 = "bitRead"
 
 ///|
-pub extern "C" fn bitSet(x : Int, n : Int) -> Int = "bitSet"
+pub extern "C" fn bitSet(x : Int32, n : Int32) -> Int32 = "bitSet"
 
 ///|
-pub extern "C" fn bitWrite(x : Int, n : Int, b : Bool) -> Unit = "bitWrite"
+pub extern "C" fn bitWrite(x : Int32, n : Int32, b : Bool) -> Unit = "bitWrite"

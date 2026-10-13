@@ -17,9 +17,9 @@
 // For inquiries, you can contact us via e-mail at jichuruanjian@idea.edu.cn.
 
 ///|
-extern "C" fn __tone(pin : Int, frequency : Int, duration : Int64) -> Unit = "arduino_tone"
+extern "C" fn __tone(pin : Int32, frequency : Int32, duration : Int64) -> Unit = "arduino_tone"
 
 ///|
-pub fn tone(pin : Pin, frequency : Int, duration~ : Int64 = 0) -> Unit {
+pub fn tone(pin : Pin, frequency : Int32, duration~ : Int64 = 0) -> Unit {
   __tone(pin.to_int8(), frequency, duration)
 }

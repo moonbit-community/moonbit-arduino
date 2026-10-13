@@ -34,7 +34,7 @@ pub(all) enum InterruptMode {
 }
 
 ///|
-pub fn InterruptMode::to_int(self : InterruptMode) -> Int {
+pub fn InterruptMode::to_int(self : InterruptMode) -> Int32 {
   match self {
     RISING => 0x01
     FALLING => 0x02
@@ -47,25 +47,27 @@ pub fn InterruptMode::to_int(self : InterruptMode) -> Int {
 }
 
 // void attachInterrupt(uint8_t pin, std::function<void(void)> intRoutine, int mode)
+
 ///|
 extern "C" fn __attachInterrupt(
-  pin : Int,
+  pin : Int32,
   intRoutine : () -> Unit,
-  mode : Int
+  mode : Int32,
 ) -> Unit = "arduino_attach_interrupt_arg"
 
 ///|
 pub fn attachInterrupt(
   pin : Pin,
   intRoutine : () -> Unit,
-  mode : InterruptMode
+  mode : InterruptMode,
 ) -> Unit {
   __attachInterrupt(pin.to_int8(), intRoutine, mode.to_int())
 }
 
 // void detachInterrupt(uint8_t pin)
+
 ///|
-extern "C" fn __detachInterrupt(pin : Int) -> Unit = "detachInterrupt"
+extern "C" fn __detachInterrupt(pin : Int32) -> Unit = "detachInterrupt"
 
 ///|
 pub fn detachInterrupt(pin : Pin) -> Unit {
@@ -73,7 +75,7 @@ pub fn detachInterrupt(pin : Pin) -> Unit {
 }
 
 ///|
-extern "C" fn __digitalPinToInterrupt(pin : Int) -> Int = "arduino_digital_pin_to_interrupt"
+extern "C" fn __digitalPinToInterrupt(pin : Int32) -> Int32 = "arduino_digital_pin_to_interrupt"
 
 ///|
 pub fn digitalPinToInterrupt(pin : Pin) -> Pin {
