@@ -18,10 +18,10 @@
 
 ///|
 extern "C" fn __spi_begin(
-  sck~ : Int,
-  miso~ : Int,
-  mosi~ : Int,
-  ss~ : Int
+  sck~ : Int32,
+  miso~ : Int32,
+  mosi~ : Int32,
+  ss~ : Int32,
 ) -> Unit = "spi_begin"
 
 ///|
@@ -29,7 +29,7 @@ pub fn begin(
   sck? : @arduino.Pin,
   miso? : @arduino.Pin,
   mosi? : @arduino.Pin,
-  ss? : @arduino.Pin
+  ss? : @arduino.Pin,
 ) -> Unit {
   __spi_begin(
     sck=sck.map_or(-1, @arduino.Pin::to_int8),
@@ -41,16 +41,16 @@ pub fn begin(
 
 ///|
 extern "C" fn __spi_begin_transaction(
-  clock~ : Int,
-  bitOrder~ : Int,
-  dataMode~ : Int
+  clock~ : Int32,
+  bitOrder~ : Int32,
+  dataMode~ : Int32,
 ) -> Unit = "spi_begin_transaction"
 
 ///|
 pub(all) struct Settings {
-  clock : Int
-  bitOrder : Int
-  dataMode : Int
+  clock : Int32
+  bitOrder : Int32
+  dataMode : Int32
 }
 
 ///|
@@ -71,23 +71,24 @@ pub fn end_transaction() -> Unit {
 }
 
 ///|
-extern "C" fn __spi_transfer(data : Int) -> Unit = "spi_transfer"
+extern "C" fn __spi_transfer(data : Int32) -> Unit = "spi_transfer"
 
 ///|
-pub fn transfer[T : @arduino.ToInt8](data : T) -> Unit {
+pub fn[T : @arduino.ToInt8] transfer(data : T) -> Unit {
   __spi_transfer(data.to_int8())
 }
 
 ///|
-extern "C" fn __spi_transfer16(data : Int) -> Unit = "spi_transfer16"
+extern "C" fn __spi_transfer16(data : Int32) -> Unit = "spi_transfer16"
 
 ///|
-pub fn transfer16[T : @arduino.ToInt16](data : T) -> Unit {
+pub fn[T : @arduino.ToInt16] transfer16(data : T) -> Unit {
   __spi_transfer16(data.to_int16())
 }
 
 ///|
-extern "C" fn __spi_transfer_bytes(data : Bytes, length : Int) -> Unit = "spi_transfer_bytes"
+#owned(data)
+extern "C" fn __spi_transfer_bytes(data : Bytes, length : Int32) -> Unit = "spi_transfer_bytes"
 
 ///|
 pub fn transfer_bytes(data : Bytes) -> Unit {

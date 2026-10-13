@@ -17,11 +17,12 @@
 // For inquiries, you can contact us via e-mail at jichuruanjian@idea.edu.cn.
 
 // void delay(uint32_t ms)
-///|
-pub extern "C" fn delay(ms : UInt) = "delay"
 
 ///|
-pub extern "C" fn delayMicroseconds(us : Int) = "delayMicroseconds"
+pub extern "C" fn delay(ms : UInt32) = "delay"
+
+///|
+pub extern "C" fn delayMicroseconds(us : Int32) = "delayMicroseconds"
 
 ///|
 pub extern "C" fn micros() -> UInt64 = "micros"

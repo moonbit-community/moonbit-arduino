@@ -45,7 +45,7 @@ pub(all) enum Pin {
 }
 
 ///|
-pub fn Pin::to_int8(x : Pin) -> Int {
+pub fn Pin::to_int8(x : Pin) -> Int32 {
   match x {
     GPIO_0 => 0
     GPIO_1 => 1
@@ -75,7 +75,7 @@ pub fn Pin::to_int8(x : Pin) -> Int {
 }
 
 ///|
-pub fn Pin::from_int(x : Int) -> Pin {
+pub fn Pin::from_int(x : Int32) -> Pin {
   match x {
     0 => GPIO_0
     1 => GPIO_1

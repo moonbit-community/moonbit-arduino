@@ -17,37 +17,41 @@
 // For inquiries, you can contact us via e-mail at jichuruanjian@idea.edu.cn.
 
 // uint16_t analogRead(uint8_t pin)
-///|
-extern "C" fn __analogRead(pin : Int) -> Int = "analogRead"
 
 ///|
-pub fn analogRead(pin : Pin) -> Int {
+extern "C" fn __analogRead(pin : Int32) -> Int32 = "analogRead"
+
+///|
+pub fn analogRead(pin : Pin) -> Int32 {
   __analogRead(pin.to_int8())
 }
 
 // extern void analogReadResolution(uint8_t bits) __attribute__((weak, alias("__analogReadResolution")));
-///|
-extern "C" fn __analogReadResolution(bits : Int) -> Unit = "analogReadResolution"
 
 ///|
-pub fn analogReadResolution[T : ToInt8](bits : T) -> Unit {
+extern "C" fn __analogReadResolution(bits : Int32) -> Unit = "analogReadResolution"
+
+///|
+pub fn[T : ToInt8] analogReadResolution(bits : T) -> Unit {
   __analogReadResolution(bits.to_int8())
 }
 
 // void analogWrite(uint8_t pin, int value)
-///|
-extern "C" fn __analogWrite(pin : Int, value : Int) -> Unit = "analogWrite"
 
 ///|
-pub fn analogWrite(pin : Pin, value : Int) -> Unit {
+extern "C" fn __analogWrite(pin : Int32, value : Int32) -> Unit = "analogWrite"
+
+///|
+pub fn analogWrite(pin : Pin, value : Int32) -> Unit {
   __analogWrite(pin.to_int8(), value)
 }
 
 // void analogWriteResolution(uint8_t pin, uint8_t resolution)
-///|
-extern "C" fn __analogWriteResolution(pin : Int, resolution : Int) -> Unit = "analogWriteResolution"
 
 ///|
-pub fn analogWriteResolution[T : ToInt8](pin : Pin, resolution : T) -> Unit {
+extern "C" fn __analogWriteResolution(pin : Int32, resolution : Int32) -> Unit = "analogWriteResolution"
+
+///|
+pub fn[T : ToInt8] analogWriteResolution(pin : Pin, resolution : T) -> Unit {
   __analogWriteResolution(pin.to_int8(), resolution.to_int8())
 }
